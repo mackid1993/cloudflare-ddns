@@ -11,5 +11,5 @@ RECORD_NAME=""
 TTL=1  # 1 = Auto (300s), or use 120, 300, 600, 900, 1800, 3600, 7200, 18000, 43200, 86400
 PROXIED=false  # true = Traffic through Cloudflare (orange cloud), false = DNS only (grey cloud)
 ```
-Audomate however you see fit, launchd or cron. Works on both Mac and Linux with no dependancies.
+Automate however you see fit, launchd or cron. Works on both Mac and Linux with no dependancies.
 
