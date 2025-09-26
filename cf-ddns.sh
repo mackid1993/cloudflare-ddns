@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Cloudflare DDNS Update Script for macOS
-# Robust version with network checks, log rotation, and IP caching
-
 # Configuration
 AUTH_TOKEN=""  # Your scoped Cloudflare API token
 ZONE_NAME=""
