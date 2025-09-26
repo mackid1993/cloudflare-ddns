@@ -46,7 +46,7 @@ PROXIED=false                              # false = DNS only, true = Proxied
 
 ### 3. Set File Paths
 
-Update the file paths to your preferred locations:
+**Important:** Update the file paths in the script to match your preferred locations:
 
 ```bash
 # File paths
@@ -54,6 +54,8 @@ LOG_FILE="/var/log/cloudflare_ddns.log"
 ERROR_LOG="/var/log/cloudflare_ddns.error.log"
 LAST_IP_FILE="/var/log/cloudflare_ddns_ip.txt"
 ```
+
+Make sure these directories exist and are writable by the user running the script.
 
 ### 4. Make Executable and Test
 
@@ -79,7 +81,7 @@ Add this line:
 
 ### macOS (LaunchD)
 
-Create `/Library/LaunchDaemons/com.cloudflare.ddns.plist`:
+**Important:** Create `/Library/LaunchDaemons/com.cloudflare.ddns.plist` and customize the paths:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -134,6 +136,12 @@ Create `/Library/LaunchDaemons/com.cloudflare.ddns.plist`:
 - **ThrottleInterval**: Prevents rapid restarts if script fails
 - **LowPriorityIO**: Minimizes system impact
 - **Explicit bash interpreter**: Ensures consistent execution environment
+
+**Customize ALL paths in the plist above:**
+- Update `/Users/Shared/Scripts/cf-ddns.sh` to your actual script location
+- Update `/Users/Shared/cloudflare_ddns.log` to match your script's LOG_FILE setting
+- Update `/Users/Shared/cloudflare_ddns.error.log` to match your script's ERROR_LOG setting
+- Ensure all paths in the LaunchD plist match the paths configured in your script
 
 Create the script directory and load:
 ```bash
