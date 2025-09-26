@@ -39,12 +39,23 @@ done
 
 # Wait for network connectivity (max 20 seconds)
 network_available=false
+
+# Set ping command based on OS (macOS uses milliseconds, Linux uses seconds)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    ping_cmd="ping -c 1 -W 1000 8.8.8.8"  # 1000ms = 1 second on macOS
+else
+    ping_cmd="ping -c 1 -W 1 8.8.8.8"     # 1 second on Linux
+fi
+
+log_message "Checking network connectivity..."
 for i in {1..10}; do
-    if ping -c 1 -W 1 8.8.8.8 >/dev/null 2>&1; then
+    if $ping_cmd >/dev/null 2>&1; then
         network_available=true
+        log_message "✓ Network connectivity confirmed (attempt $i)"
         break
     fi
-    [ $i -eq 10 ] && { 
+    log_message "✗ Network check failed (attempt $i/10)"
+    [ $i -eq 10 ] && {
         log_message "✗ No network connectivity after 10 attempts"
         exit 1
     }
