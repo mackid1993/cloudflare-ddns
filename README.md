@@ -4,7 +4,7 @@ A robust, cross-platform bash script for automatically updating Cloudflare DNS A
 
 ## Features
 
-- **Cross-Platform**: Works seamlessly on macOS and Linux
+- **Cross-Platform**: Works on macOS and Linux
 - **Network Resilience**: Multiple connectivity checks and IP service fallbacks
 - **Smart Caching**: Only updates DNS when IP actually changes to minimize API calls
 - **Robust Error Handling**: Comprehensive validation and graceful failure handling
