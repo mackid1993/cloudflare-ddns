@@ -129,14 +129,6 @@ Add this line:
 </dict>
 </plist>
 ```
-
-**Key Features of this LaunchD configuration:**
-- **RunAtLoad**: Starts automatically when loaded
-- **KeepAlive/NetworkState**: Only runs when network is available
-- **ThrottleInterval**: Prevents rapid restarts if script fails
-- **LowPriorityIO**: Minimizes system impact
-- **Explicit bash interpreter**: Ensures consistent execution environment
-
 **Customize ALL paths in the plist above:**
 - Update `/Users/Shared/Scripts/cf-ddns.sh` to your actual script location
 - Update `/Users/Shared/cloudflare_ddns.log` to match your script's LOG_FILE setting
